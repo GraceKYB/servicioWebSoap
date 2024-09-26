@@ -1,0 +1,543 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tns="http://tempuri.org/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="ws_listar_artistas">
+        <s:complexType />
+      </s:element>
+      <s:element name="ws_listar_artistasResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ws_listar_artistasResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ws_listar_generos">
+        <s:complexType />
+      </s:element>
+      <s:element name="ws_listar_generosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ws_listar_generosResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ws_listar_albumes">
+        <s:complexType />
+      </s:element>
+      <s:element name="ws_listar_albumesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ws_listar_albumesResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ws_insertar_artista">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nombreArtista" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ws_insertar_artistaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ws_insertar_artistaResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ws_insertar_genero">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nombreGenero" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ws_insertar_generoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ws_insertar_generoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ws_insertar_album">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="tituloAlbum" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="idArtista" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="idGenero" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ws_insertar_albumResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ws_insertar_albumResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ws_editar_artista">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idArtista" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="nombreArtista" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ws_editar_artistaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ws_editar_artistaResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ws_editar_genero">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idGenero" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="nombreGenero" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ws_editar_generoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ws_editar_generoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ws_editar_album">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idAlbum" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="tituloAlbum" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="idArtista" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="idGenero" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ws_editar_albumResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ws_editar_albumResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ws_eliminar_artista">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idArtista" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ws_eliminar_artistaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ws_eliminar_artistaResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ws_eliminar_genero">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idGenero" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ws_eliminar_generoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ws_eliminar_generoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ws_eliminar_album">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idAlbum" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ws_eliminar_albumResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ws_eliminar_albumResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="ws_listar_artistasSoapIn">
+    <wsdl:part name="parameters" element="tns:ws_listar_artistas" />
+  </wsdl:message>
+  <wsdl:message name="ws_listar_artistasSoapOut">
+    <wsdl:part name="parameters" element="tns:ws_listar_artistasResponse" />
+  </wsdl:message>
+  <wsdl:message name="ws_listar_generosSoapIn">
+    <wsdl:part name="parameters" element="tns:ws_listar_generos" />
+  </wsdl:message>
+  <wsdl:message name="ws_listar_generosSoapOut">
+    <wsdl:part name="parameters" element="tns:ws_listar_generosResponse" />
+  </wsdl:message>
+  <wsdl:message name="ws_listar_albumesSoapIn">
+    <wsdl:part name="parameters" element="tns:ws_listar_albumes" />
+  </wsdl:message>
+  <wsdl:message name="ws_listar_albumesSoapOut">
+    <wsdl:part name="parameters" element="tns:ws_listar_albumesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ws_insertar_artistaSoapIn">
+    <wsdl:part name="parameters" element="tns:ws_insertar_artista" />
+  </wsdl:message>
+  <wsdl:message name="ws_insertar_artistaSoapOut">
+    <wsdl:part name="parameters" element="tns:ws_insertar_artistaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ws_insertar_generoSoapIn">
+    <wsdl:part name="parameters" element="tns:ws_insertar_genero" />
+  </wsdl:message>
+  <wsdl:message name="ws_insertar_generoSoapOut">
+    <wsdl:part name="parameters" element="tns:ws_insertar_generoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ws_insertar_albumSoapIn">
+    <wsdl:part name="parameters" element="tns:ws_insertar_album" />
+  </wsdl:message>
+  <wsdl:message name="ws_insertar_albumSoapOut">
+    <wsdl:part name="parameters" element="tns:ws_insertar_albumResponse" />
+  </wsdl:message>
+  <wsdl:message name="ws_editar_artistaSoapIn">
+    <wsdl:part name="parameters" element="tns:ws_editar_artista" />
+  </wsdl:message>
+  <wsdl:message name="ws_editar_artistaSoapOut">
+    <wsdl:part name="parameters" element="tns:ws_editar_artistaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ws_editar_generoSoapIn">
+    <wsdl:part name="parameters" element="tns:ws_editar_genero" />
+  </wsdl:message>
+  <wsdl:message name="ws_editar_generoSoapOut">
+    <wsdl:part name="parameters" element="tns:ws_editar_generoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ws_editar_albumSoapIn">
+    <wsdl:part name="parameters" element="tns:ws_editar_album" />
+  </wsdl:message>
+  <wsdl:message name="ws_editar_albumSoapOut">
+    <wsdl:part name="parameters" element="tns:ws_editar_albumResponse" />
+  </wsdl:message>
+  <wsdl:message name="ws_eliminar_artistaSoapIn">
+    <wsdl:part name="parameters" element="tns:ws_eliminar_artista" />
+  </wsdl:message>
+  <wsdl:message name="ws_eliminar_artistaSoapOut">
+    <wsdl:part name="parameters" element="tns:ws_eliminar_artistaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ws_eliminar_generoSoapIn">
+    <wsdl:part name="parameters" element="tns:ws_eliminar_genero" />
+  </wsdl:message>
+  <wsdl:message name="ws_eliminar_generoSoapOut">
+    <wsdl:part name="parameters" element="tns:ws_eliminar_generoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ws_eliminar_albumSoapIn">
+    <wsdl:part name="parameters" element="tns:ws_eliminar_album" />
+  </wsdl:message>
+  <wsdl:message name="ws_eliminar_albumSoapOut">
+    <wsdl:part name="parameters" element="tns:ws_eliminar_albumResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WsSoapSoap">
+    <wsdl:operation name="ws_listar_artistas">
+      <wsdl:input message="tns:ws_listar_artistasSoapIn" />
+      <wsdl:output message="tns:ws_listar_artistasSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ws_listar_generos">
+      <wsdl:input message="tns:ws_listar_generosSoapIn" />
+      <wsdl:output message="tns:ws_listar_generosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ws_listar_albumes">
+      <wsdl:input message="tns:ws_listar_albumesSoapIn" />
+      <wsdl:output message="tns:ws_listar_albumesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ws_insertar_artista">
+      <wsdl:input message="tns:ws_insertar_artistaSoapIn" />
+      <wsdl:output message="tns:ws_insertar_artistaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ws_insertar_genero">
+      <wsdl:input message="tns:ws_insertar_generoSoapIn" />
+      <wsdl:output message="tns:ws_insertar_generoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ws_insertar_album">
+      <wsdl:input message="tns:ws_insertar_albumSoapIn" />
+      <wsdl:output message="tns:ws_insertar_albumSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ws_editar_artista">
+      <wsdl:input message="tns:ws_editar_artistaSoapIn" />
+      <wsdl:output message="tns:ws_editar_artistaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ws_editar_genero">
+      <wsdl:input message="tns:ws_editar_generoSoapIn" />
+      <wsdl:output message="tns:ws_editar_generoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ws_editar_album">
+      <wsdl:input message="tns:ws_editar_albumSoapIn" />
+      <wsdl:output message="tns:ws_editar_albumSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ws_eliminar_artista">
+      <wsdl:input message="tns:ws_eliminar_artistaSoapIn" />
+      <wsdl:output message="tns:ws_eliminar_artistaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ws_eliminar_genero">
+      <wsdl:input message="tns:ws_eliminar_generoSoapIn" />
+      <wsdl:output message="tns:ws_eliminar_generoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ws_eliminar_album">
+      <wsdl:input message="tns:ws_eliminar_albumSoapIn" />
+      <wsdl:output message="tns:ws_eliminar_albumSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WsSoapSoap" type="tns:WsSoapSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ws_listar_artistas">
+      <soap:operation soapAction="http://tempuri.org/ws_listar_artistas" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ws_listar_generos">
+      <soap:operation soapAction="http://tempuri.org/ws_listar_generos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ws_listar_albumes">
+      <soap:operation soapAction="http://tempuri.org/ws_listar_albumes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ws_insertar_artista">
+      <soap:operation soapAction="http://tempuri.org/ws_insertar_artista" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ws_insertar_genero">
+      <soap:operation soapAction="http://tempuri.org/ws_insertar_genero" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ws_insertar_album">
+      <soap:operation soapAction="http://tempuri.org/ws_insertar_album" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ws_editar_artista">
+      <soap:operation soapAction="http://tempuri.org/ws_editar_artista" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ws_editar_genero">
+      <soap:operation soapAction="http://tempuri.org/ws_editar_genero" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ws_editar_album">
+      <soap:operation soapAction="http://tempuri.org/ws_editar_album" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ws_eliminar_artista">
+      <soap:operation soapAction="http://tempuri.org/ws_eliminar_artista" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ws_eliminar_genero">
+      <soap:operation soapAction="http://tempuri.org/ws_eliminar_genero" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ws_eliminar_album">
+      <soap:operation soapAction="http://tempuri.org/ws_eliminar_album" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WsSoapSoap12" type="tns:WsSoapSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ws_listar_artistas">
+      <soap12:operation soapAction="http://tempuri.org/ws_listar_artistas" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ws_listar_generos">
+      <soap12:operation soapAction="http://tempuri.org/ws_listar_generos" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ws_listar_albumes">
+      <soap12:operation soapAction="http://tempuri.org/ws_listar_albumes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ws_insertar_artista">
+      <soap12:operation soapAction="http://tempuri.org/ws_insertar_artista" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ws_insertar_genero">
+      <soap12:operation soapAction="http://tempuri.org/ws_insertar_genero" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ws_insertar_album">
+      <soap12:operation soapAction="http://tempuri.org/ws_insertar_album" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ws_editar_artista">
+      <soap12:operation soapAction="http://tempuri.org/ws_editar_artista" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ws_editar_genero">
+      <soap12:operation soapAction="http://tempuri.org/ws_editar_genero" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ws_editar_album">
+      <soap12:operation soapAction="http://tempuri.org/ws_editar_album" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ws_eliminar_artista">
+      <soap12:operation soapAction="http://tempuri.org/ws_eliminar_artista" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ws_eliminar_genero">
+      <soap12:operation soapAction="http://tempuri.org/ws_eliminar_genero" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ws_eliminar_album">
+      <soap12:operation soapAction="http://tempuri.org/ws_eliminar_album" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WsSoap">
+    <wsdl:port name="WsSoapSoap" binding="tns:WsSoapSoap">
+      <soap:address location="http://localhost:53112/WsSoap.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WsSoapSoap12" binding="tns:WsSoapSoap12">
+      <soap12:address location="http://localhost:53112/WsSoap.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
